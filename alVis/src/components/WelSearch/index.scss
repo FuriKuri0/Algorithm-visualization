@@ -1,0 +1,56 @@
+.WelSearch {
+    padding: 30px;
+    border-radius: 5px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .WelSearch-input {
+        width: 80%;
+    }
+    .WelSearch-hot {
+        display: flex;
+        width: 80%;
+        margin-top: 10px;
+        color: #5c5f66;
+        font-weight: 400;
+        ul {
+            margin-top: 0px;
+            margin-left: 30px;
+            display: flex;
+            li {
+                margin-left: 10px;
+                color: black;
+                display: flex;
+                font-size: 14px;
+                color: #151b26;
+                &:nth-child(-n+2)::after {
+                    content: "";
+                    display: block;
+                    width: 1px;
+                    height: 10px;
+                    background: #b8babf;
+                    margin-left: 10px;
+                    margin-top: 5px;
+                }
+                &:hover{
+                    cursor: pointer;
+                    color: rgb(39, 131, 255);
+                }
+            }
+        }
+    }
+    .WelSearch-result {
+        width: 95%;
+        margin-top: 20px;
+        color: #5c5f66;
+        font-weight: 400;
+        font-size: 12px;
+        .WelSearch-result-main {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+    }
+}

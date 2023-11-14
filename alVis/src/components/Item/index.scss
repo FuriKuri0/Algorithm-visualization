@@ -1,0 +1,33 @@
+.Item {
+    padding: 20px;
+    width: 30%;
+    min-width: 200px;
+    border: 1px solid #e8e9eb;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    justify-content: start;
+    img {
+        height: 50px;
+    }
+    .Item-right {
+        margin-left: 20px;
+        width: calc(100% - 90px);
+        h1 {
+            color: black;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0;
+        }
+        p {
+            width: 100%;
+            margin: 0;
+            font-size: 12px;
+            color: #5c5f66;
+            margin-top: 5px;
+        }
+    }
+    &:hover{
+        
+    }
+}
