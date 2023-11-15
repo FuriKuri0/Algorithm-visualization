@@ -1,12 +1,16 @@
 .Item {
     padding: 20px;
     width: 30%;
+    max-width: 400px;
     min-width: 200px;
     border: 1px solid #e8e9eb;
     display: flex;
     align-items: center;
     border-radius: 4px;
     justify-content: start;
+    margin-bottom: 10px;
+    transition: all .3s;
+    margin-right: 10px;
     img {
         height: 50px;
     }
@@ -28,6 +32,8 @@
         }
     }
     &:hover{
-        
+        cursor: pointer;
+        border: 1px dashed  rgb(22, 119, 255);
+        background: rgba(22, 119, 255,.1);
     }
 }

@@ -49,8 +49,15 @@
         .WelSearch-result-main {
             display: flex;
             width: 100%;
-            justify-content: space-around;
+            flex-wrap: wrap;
+            justify-content: start;
             margin-top: 20px;
+            i {
+                width: 30%;
+                max-width: 400px;
+                min-width: 200px;
+                height: 0;
+            }
         }
     }
 }

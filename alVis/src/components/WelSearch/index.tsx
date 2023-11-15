@@ -1,16 +1,17 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Input } from 'antd'
 import './index.scss'
 import Item from '../Item';
+import list from './list';
 const { Search } = Input;
 export default function WelSearch() {
-    // const [hot,setHot] = useState([{}])
+    const [hot,setHot] = useState<Array<{[key:string]:string}>>([])
     const onSearch  = (value:string) => {
-        console.log(value)
+        setHot(list.filter(v=>v.name.includes(value)))
     }
   return (
     <div className='WelSearch'>
-        <Search size='large' className='WelSearch-input' placeholder="input search text" onSearch={onSearch} enterButton />
+        <Search size='large' className='WelSearch-input' placeholder="请输入算法应用" onSearch={onSearch} enterButton />
        {/* 热门 */}
         <div className='WelSearch-hot'>
         <div>热门搜索</div>
@@ -22,11 +23,9 @@ export default function WelSearch() {
         </div>
         {/* 结果 */}
         <div className='WelSearch-result'>
-            <div>为您找到3个相关结果</div> 
+            <div>为您找到{hot.length}个相关结果</div> 
             <div className='WelSearch-result-main'>
-                <Item></Item>
-                <Item></Item>
-                <Item></Item>
+                {hot?.map((v)=>(<Item key={v.name} name={v.name} path={v.path}></Item>))}
             </div>
         </div>
         

@@ -3,4 +3,100 @@
     padding: 20px;
     border-radius: 5px;
     background: white;
+    h1{
+        font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: #151b26;
+    font-weight: 500;
+    }
+    .fixed {
+        position: fixed;
+        top: 30px;
+    }
+    .WelMain-nav {
+        margin-top: 20px;
+        background: white;
+        ul {
+            display: flex;
+            position: relative;
+            li {
+                margin-right: 30px;
+                transition: all .3s;
+                height: 50px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            li:nth-child(1):hover~ .WelMain-nav-thumb{    /*li元素的父元素的第一个子元素，当鼠标停留其上时，move元素的left属性改变*/
+                left: 0px!important;
+            }
+            li:nth-child(2):hover~ .WelMain-nav-thumb{
+                left: 83px!important;
+            }
+            li:nth-child(3):hover~ .WelMain-nav-thumb{
+                left: 175px!important;
+            }
+          
+            .active{
+                color: rgb(22, 119, 255);
+            }
+            .WelMain-nav-thumb {
+                position: absolute;
+                width: 60px;
+                background: rgb(22, 119, 255);
+                height: 2px;
+                transition: all .3s;
+                left: 0;
+                top: 30px;
+            }
+        }
+        .WelMain-nav-line {
+            width: 100%;
+            height: 1px;
+            background: rgba(0,0,0,.1);
+            margin-top: -33px;
+        }
+    }
+  
+    .WelMain-main {
+        margin-top: 40px;
+        .WelMain-main-module {
+            margin-bottom: 30px;
+        transition: all .3s;
+            
+            .mainActive {
+                color: rgb(22, 119, 255);
+            }
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                li {
+                    margin-right: 30px;
+                    transition: all .3s;
+                    height: 50px;
+                    width: 300px;
+                    flex-wrap: wrap;
+                    padding-left: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: start;
+                    border: 1px solid rgba(0,0,0,.1);
+                    border-radius: 4px;
+                    margin-top: 10px;
+                    transition: all .3s;
+                    &:hover {
+                        cursor: pointer;
+                        border: 1px dashed  rgb(22, 119, 255);
+                        background: rgba(22, 119, 255,.1);
+                    }
+                    img {
+                        height: 25px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+   
+    }
 }

@@ -11,6 +11,7 @@ const defaultProps = {
                 path: '/text',
                 name: '文本识别',
                 icon: <TranslationOutlined />,
+                active:false,
                 routes: [
                     {
                         path: '/text/normal',
@@ -30,6 +31,7 @@ const defaultProps = {
                 name: '语音识别',
                 icon: <AudioOutlined />,
                 path: '/voice',
+                active:false,
                 routes: [
                     {
                         path: '/voice/normal',
@@ -45,6 +47,7 @@ const defaultProps = {
                 name: '大模型应用',
                 icon: <DotChartOutlined/>,
                 path: '/model',
+                active:false,
                 routes: [
                     {
                         path: '/model/chat',
