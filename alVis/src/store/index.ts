@@ -6,7 +6,10 @@ const store = configureStore({
 	// 将所有子模块匹配值在这里
 	reducer: {
 		path: pathReducer
-	}
+	},
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+		serializableCheck: false,
+	})
 })
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch;

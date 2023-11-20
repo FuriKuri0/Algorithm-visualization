@@ -1,19 +1,25 @@
 import {  useAppDispatch,useAppSelector } from './declare';
-import {setPath} from '../../store/reducers/path';
-
+import {setPath,setCurrent} from '../../store/reducers/path';
+import defaultProps from '../../pages/Home/defaultProps';
+import {  useCallback } from 'react';
+const list = defaultProps.route.routes
 export const usePath =  () => {
   const path = useAppSelector(state=>state.path)
   const dispath = useAppDispatch()
   //获取状态
-  const {pathName} = path
+  const {pathName,current} = path
   //方法
     //改变路径
   const changePath = (path:string) => {
     dispath(setPath(path))
-    sessionStorage.setItem('pathName',path)
+    changeCurrent(path)
   }
-
+  //改变导航
+  const changeCurrent = useCallback((path:string)=>{
+    const newCurrent = list.find(v=>v.path.split('/')[1]===path.split('/')[1])||{}
+    dispath(setCurrent(newCurrent))
+  },[pathName])
   return {
-    pathName,changePath
+    pathName,changePath,current
   }
 }

@@ -8,34 +8,58 @@ const defaultProps = {
         path: '/',
         routes: [
             {
+                index:0,
                 path: '/text',
                 name: '文本识别',
                 icon: <TranslationOutlined />,
                 active:false,
+                introduce:'多场景、多语种、高精度的整图文字检测和识别服务，可识别各类印刷文档，可结构化识别各类票据和卡证',
                 routes: [
                     {
                         path: '/text/normal',
                         name: '通用场景文字识别',
+                        children:null
                     },
                     {
                         path: '/text/ticket',
                         name: '票据文本识别',
+                        children:[
+                            {name:'定额发票识别',path:'/text/ticket/dinge'},
+                            {name:'火车票识别',path:'/text/ticket/huoche'},
+                            {name:'出租车发票识别',path:'/text/ticket/chuzu'},
+                            {name:'增值税发票识别',path:'/text/ticket/zengzhi'}
+                        ]
                     },
                     {
                         path: '/text/card',
                         name: '卡证文字识别',
+                        children:[
+                            {name:'身份证识别',path:'/text/card/shenfen'},
+                            {name:'结婚证识别',path:'/text/card/jiehun'},
+                            {name:'户口本识别',path:'/text/card/hukou'},
+                            {name:'营业执照识别',path:'/text/card/yingye'}
+                        ]
                     },
                 ],
             },
             {
+                index:1,
                 name: '语音识别',
                 icon: <AudioOutlined />,
                 path: '/voice',
                 active:false,
+                introduce:'多种语音识别算法，支持中文、英文语音识别的在线体验，可提供稳定易用的在线API、离线SDK、软件部署包、一体机多种服务形式',
                 routes: [
                     {
                         path: '/voice/normal',
                         name: '语音识别',
+                        children:[
+                            {name:'中文语音识别',path:'/voice/normal/zhongwen'},
+                            {name:'中英语音识别',path:'/voice/normal/zhongyin'},
+                            {name:'轻量化模型中文识别',path:'/voice/normal/qingliang'},
+                            {name:'中文语音流式识别',path:'/voice/normal/liushi'}
+                        ]
+
                     },
                     {
                         path: '/voice/synthesis',
@@ -44,9 +68,11 @@ const defaultProps = {
                 ],
             },
             {
+                index:2,
                 name: '大模型应用',
                 icon: <DotChartOutlined/>,
                 path: '/model',
+                introduce:'具有超过一千万个参数的深度神经网络模型。 目前，大模型主要应用于自然语言处理、图像识别和推荐系统等领域。 大模型通常采用非常复杂的结构和算法，以便在海量数据中提取出最有效的特征。',
                 active:false,
                 routes: [
                     {
@@ -114,3 +140,4 @@ const defaultProps = {
     // ],
 };
 export default defaultProps;
+export type defaultType = typeof defaultProps.route.routes[0]
