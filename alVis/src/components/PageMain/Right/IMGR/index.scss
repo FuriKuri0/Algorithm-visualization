@@ -1,0 +1,97 @@
+.PageMain-RightMain{
+    display: flex;
+    justify-content: center;
+.PageMain-RightMainAsk,.PageMain-RightMainAns {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 400px;
+    padding: 13px;
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid #DCE3EB;
+    &::before, &::after{
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+    }
+    &::before {
+        left: -2px;
+        top: -2px;
+        border-left: 2px solid #00A4FF;
+        border-top: 2px solid #00A4FF;
+    }
+    &::after {
+        top: -2px;
+        right: -2px;
+        border-right: 2px solid #00A4FF;
+        border-top: 2px solid #00A4FF;
+    }
+}
+.PageMain-RightMainBg {
+    margin: 0 auto;
+    width: 99%;
+    height: 99%;
+    background: rgb(242, 246, 250);
+    &::after,&::before{
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+    }
+    &::before {
+        left: -2px;
+        bottom: -2px;
+        border-left: 2px solid #00A4FF;
+        border-bottom: 2px solid #00A4FF;
+    }
+    &::after {
+        bottom:  -2px;
+        right: -2px;
+        border-right: 2px solid #00A4FF;
+        border-bottom: 2px solid #00A4FF;
+    }
+}
+ .PageMain-RightMainAsk {
+    margin-right: 20px;
+    width: 65%;
+    .PageMain-RightMainBg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    
+
+}
+.PageMain-RightMainAns {
+    width: 35%;
+}
+}
+.PageMain-Bottom {
+    display: flex;
+    width: 90%;
+    margin-top: 20px;
+    .PageMain-BottomLeft {
+        line-height: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        .PageMain-BottomLeftUpload {
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: white;
+            background: rgb(0, 164, 255);
+            margin-right: 10px;
+        }
+        .PageMain-input{
+            width: 50%;
+            margin-left: 10px;
+        }
+        p {
+            font-size: 12px;
+        }
+    }
+}

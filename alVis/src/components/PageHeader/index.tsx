@@ -23,7 +23,7 @@ export default function PageHeader() {
       </header>
         <ul className='MyPageContainer-nav'>
             {current?.routes?.map((v)=>{
-                return (<li key={v.path} className={pathName.includes(v.path)?'active':''}  onClick={()=>changePath(v.path)}>{v.name}</li>)
+                return (<li key={v.path} className={pathName.includes(v.path)?'active':''}  onClick={()=>changePath(v.children?v.children[0].path:v.path)}>{v.name}</li>)
             })}
         </ul>
     </div>

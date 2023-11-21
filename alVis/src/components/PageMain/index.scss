@@ -1,11 +1,10 @@
 .PageMain {
     width: 100%;
-    height:80vh;    
     background: #f3f5f8;
     box-shadow: inset 8px 8px 20px 0 rgba(55,99,170,.11), inset -8px -8px 20px 0 #fff;
     padding: 40px 20px;
     display: flex;
-    ul{
+    .PageMain-Nav{
         margin: 0;
         width: 200px;
         position: relative;
@@ -47,16 +46,5 @@
             }
         }
     }
-    .PageMain-Right {
-    width: calc(100% - 200px);
-    background: #f3f5f8;
-    margin: 0;
-    margin-left: 10px;
-    padding: 40px;
-    background-image: linear-gradient(0deg, #fff, #f3f5f8);
-    border: 2px solid #fff;
-    box-shadow: 8px 8px 20px 0 rgba(55,99,170,.1), -8px -8px 20px 0 #fff;
-    flex: 1;
-    width: 1px;
-    }
+  
 }
