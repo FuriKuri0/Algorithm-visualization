@@ -1,4 +1,5 @@
 import {  useAppDispatch,useAppSelector } from './declare';
+import { useEffect,useState } from 'react';
 import {setPath,setCurrent} from '../../store/reducers/path';
 import defaultProps from '../../pages/Home/defaultProps';
 import {  useCallback } from 'react';
@@ -22,4 +23,18 @@ export const usePath =  () => {
   return {
     pathName,changePath,current
   }
+}
+
+export const useRefresh =  () => {
+  const [refresh,setRefresh] = useState(false)
+  const path = useAppSelector(state=>state.path)
+  //获取状态
+  const {pathName} = path
+  useEffect(()=>{
+    setRefresh(true)
+    setTimeout(()=>{
+      setRefresh(false)
+    },500)
+},[pathName])
+return {refresh}
 }

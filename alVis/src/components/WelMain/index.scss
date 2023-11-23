@@ -1,3 +1,4 @@
+
 .WelMain {
     margin-top: 20px;
     padding: 20px;
@@ -91,8 +92,10 @@
                         background: rgba(22, 119, 255,.1);
                     }
                     img {
-                        height: 25px;
+                        height: 35px;
+                        width: 35px;
                         margin-right: 10px;
+                        border-radius: 25px;
                     }
                 }
             }

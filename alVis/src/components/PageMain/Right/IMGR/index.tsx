@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import {Input,Upload } from 'antd'
 const { Search } = Input;
 import type { UploadProps } from 'antd';
 import './index.scss'
-import { usePath } from '../../../../utils/hook';
+import { useRefresh,usePath } from '../../../../utils/hook';
 export default function IMGR() {
     const [src,setSrc] = useState('')
+    const {refresh} = useRefresh()
     const {pathName} = usePath()
     useEffect(()=>{
         setSrc('')
@@ -29,8 +30,9 @@ export default function IMGR() {
       };
   return (
     <div>
-         <div className='PageMain-RightMain'>
-            <div className='PageMain-RightMainAsk'>
+      
+            <div className={refresh?'PageMain-RightMain slide-in-right':'PageMain-RightMain'}>
+            <div className='PageMain-RightMainAsk '>
                 <div className='PageMain-RightMainBg'>
                     {src?<img src={src} alt="" id='imgPreview' />:<></>}
                 </div>
@@ -42,7 +44,7 @@ export default function IMGR() {
             </div>
            
         </div>
-        <div className='PageMain-Bottom'>
+        <div className={refresh?'PageMain-Bottom slide-in-blurred-bottom':'PageMain-Bottom'}>
             <div  className='PageMain-BottomLeft'> 
             <Upload {...props}>
     <button className='PageMain-BottomLeftUpload'>上传本地文件</button>

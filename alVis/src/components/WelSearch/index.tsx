@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
 import { Input } from 'antd'
 import './index.scss'
 import Item from '../Item';
@@ -25,7 +25,7 @@ export default function WelSearch() {
         <div className='WelSearch-result'>
             <div>为您找到{hot.length}个相关结果</div> 
             <div className='WelSearch-result-main'>
-                {hot?.map((v)=>(<Item key={v.name} name={v.name} path={v.children?v.children[0].path:v.path}></Item>))}
+                {hot?.map((v)=>(<Item key={v.name} iconUrl={v.iconUrl} name={v.name} path={v.children?v.children[0].path:v.path}></Item>))}
             </div>
         </div>
         

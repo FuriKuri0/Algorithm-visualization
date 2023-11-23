@@ -18,7 +18,8 @@ const defaultProps = {
                         path: '/text/normal',
                         name: '通用场景文字识别',
                         introduce:'多场景、多语种、高精度的整图文字检测和识别服务，可识别各类印刷文档',
-                        type:'img'
+                        type:'img',
+                        iconUrl:'http://10.252.40.1:8888/static/img/ocr_0.jpg'
                     },
                     {
                         path: '/text/ticket',
@@ -30,7 +31,9 @@ const defaultProps = {
                             {name:'增值税发票识别',path:'/text/ticket/zengzhi',introduce:'结构化识别增值税发票的发票代码、发票号码、发票日期、发票金额、校验码等关键字段'}
                         ],
                         introduce:'结构化识别定额发票、火车票、出租车发票、增值税发票等',
-                        type:'img'
+                        type:'img',
+                        iconUrl:'http://10.252.40.1:8888/static/img/ocr_invoice_bg.jpg'
+
                     },
                     {
                         path: '/text/card',
@@ -42,7 +45,8 @@ const defaultProps = {
                             {name:'营业执照识别',path:'/text/card/yingye',introduce:'结构化营业执照各个关键字段'}
                         ],
                         introduce:'结构化识别身份证、结婚证、营业执照、户口本等常用卡片及证照',
-                        type:'img'
+                        type:'img',
+                        iconUrl:'http://10.252.40.1:8888/static/img/ocr_1.jpg'
                     },
                 ],
             },
@@ -63,14 +67,18 @@ const defaultProps = {
                             {name:'轻量化模型中文识别',path:'/voice/normal/qingliang',introduce:'轻量化模型，支持中文语音的快速识别'},
                             {name:'中文语音流式识别',path:'/voice/normal/liushi',introduce:'支持中文语音流式识别的模型'}
                         ],
-                        type:'voice'
+                        type:'voice',
+                        iconUrl:'http://10.252.40.1:8888/static/img/audio/audio_0.jpg'
+
 
                     },
                     {
                         path: '/voice/synthesis',
                         name: '语音合成',
                         introduce:'文本到语音的合成，合成速度快且真实',
-                        type:'robot'
+                        type:'robot',
+                        iconUrl:'http://10.252.40.1:8888/static/img/audio/tts.png'
+
                     },
                 ],
             },
@@ -86,7 +94,8 @@ const defaultProps = {
                         path: '/model/chat',
                         name: 'AIChat智能聊天助手',
                         introduce:'AIChat支持中英双语智能应答对话',
-                        type:'robot'
+                        type:'robot',
+                        iconUrl:'http://10.252.40.1:8888/static/img/LLM/aichat.png'
                     },
                 ],
             },

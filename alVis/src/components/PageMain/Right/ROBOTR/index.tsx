@@ -1,4 +1,4 @@
-import React,{useRef,useState,useEffect} from 'react'
+import {useRef,useState,useEffect} from 'react'
 import {UserOutlined,RobotOutlined,RocketOutlined,} from '@ant-design/icons';
 import './index.scss'
 import { usePath } from '../../../../utils/hook';

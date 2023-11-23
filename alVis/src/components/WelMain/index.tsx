@@ -1,4 +1,4 @@
-import React ,{ useRef,useEffect, useState}from 'react'
+import { useRef,useEffect, useState}from 'react'
 import './index.scss'
 import appList,{leftMap} from './appList'
 import { usePath } from '../../utils/hook'
@@ -59,7 +59,7 @@ export default function WelMain() {
         <h1 className={i===index?'mainActive':''}>{v.name}</h1>
         <ul>
          {v.routes?.map((vv)=>{
-          return  <li key={vv.name} onClick={()=>navigate(vv.children?vv.children[0].path:vv.path)} className='oneEllipsis'><img src="http://10.252.40.1:8888/static/img/logo.ico" alt="" />{vv.name}</li>
+          return  <li key={vv.name} onClick={()=>navigate(vv.children?vv.children[0].path:vv.path)} className='oneEllipsis slide-in-right'><img src={vv.iconUrl} alt="" />{vv.name}</li>
          })} 
         </ul>
       </div>)

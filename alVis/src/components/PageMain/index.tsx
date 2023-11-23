@@ -15,7 +15,7 @@ export default function PageMain() {
       })}
     </ul>:<></>
     }
-    <MainRight introduce={child?child.introduce:node?.introduce as string} type={node!.type}/>
+    <MainRight  introduce={child?child.introduce:node?.introduce as string} type={node!.type}/>
     </div>
   )
 }
