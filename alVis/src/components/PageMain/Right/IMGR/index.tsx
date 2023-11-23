@@ -1,18 +1,30 @@
-import  { useEffect, useState } from 'react'
-import {Input,Upload } from 'antd'
+import  { useEffect, useMemo, useState } from 'react'
+import {Input,Upload,Spin } from 'antd'
 const { Search } = Input;
 import type { UploadProps } from 'antd';
 import './index.scss'
 import { useRefresh,usePath } from '../../../../utils/hook';
+import imgList from './data';
 export default function IMGR() {
     const [src,setSrc] = useState('')
+    const [index,setIndex] = useState(0)
+    const [imgLoad,setImgLoad] = useState(true)
     const {refresh} = useRefresh()
     const {pathName} = usePath()
-    useEffect(()=>{
-        setSrc('')
+    const state = useMemo(()=>{
+        return imgList[pathName]
     },[pathName])
+    useEffect(()=>{
+        setImgLoad(true)
+        setSrc(state.img[0])
+        setIndex(0)
+    },[pathName])
+    const updateImg = (src:string) => {
+        setSrc(src)
+        setIndex(-1)
+    }
     const onSearch = (e:string)=>{
-        setSrc(e)
+        updateImg(e)
     }
     const props: UploadProps = {
         maxCount:1,
@@ -22,25 +34,39 @@ export default function IMGR() {
           if (file) {
             const reader = new FileReader();
             reader.onload = function(e) {
-                setSrc(e.target?.result as string)
+                updateImg(e.target?.result as string)
             };
             reader.readAsDataURL(file);  // 以 Data URL 形式读取文件
           }
         },
       };
+      const changeExample = (index:number) => {
+        setIndex(index)
+        setSrc(state.img[index])
+      }
   return (
     <div>
       
             <div className={refresh?'PageMain-RightMain slide-in-right':'PageMain-RightMain'}>
             <div className='PageMain-RightMainAsk '>
                 <div className='PageMain-RightMainBg'>
-                    {src?<img src={src} alt="" id='imgPreview' />:<></>}
+                    {src?<img src={src} onLoad={()=>setImgLoad(false)} alt="" id='imgPreview' />:<></>}
+                    {imgLoad?<Spin  size="large" className='imgLoad'/>:<></>}
                 </div>
+                <div className='PageMain-RightMainAsk-example'>
+                {state?.img.map((v:string,i:number)=>{
+                    return <img onClick={()=>changeExample(i)} key={v} className={i===index?'active':''} src={v} alt="" />
+                })}
+                    </div>
             </div>
             <div className='PageMain-RightMainAns'>
-            <div className='PageMain-RightMainBg'>
-                识别结果
-            </div>
+            <ul className="PageMain-RightMainBg-container">
+                <li key='识别结果识别结果的keyyyy'>识别结果</li>
+            {state?.result[index]?.map((v:string,i:number)=>{
+                    return  <li key={v+i} className='changeLine'>{v}</li>
+                })}
+               
+            </ul>
             </div>
            
         </div>

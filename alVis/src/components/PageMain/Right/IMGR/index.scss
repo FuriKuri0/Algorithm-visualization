@@ -1,13 +1,15 @@
 .PageMain-RightMain{
     display: flex;
     justify-content: center;
+    height: 600px;
+
 .PageMain-RightMainAsk,.PageMain-RightMainAns {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 400px;
     padding: 13px;
     position: relative;
+    height:100%;
     box-sizing: border-box;
     border: 1px solid #DCE3EB;
     &::before, &::after{
@@ -32,7 +34,7 @@
 .PageMain-RightMainBg {
     margin: 0 auto;
     width: 99%;
-    height: 99%;
+    height: 80%;
     background: rgb(242, 246, 250);
     &::after,&::before{
         content: '';
@@ -62,11 +64,40 @@
         align-items: center;
         padding: 20px;
     }
+    .PageMain-RightMainAsk-example {
+        display: flex;
+        height: 22%;
+        img{
+            width: 100px;
+            margin: 10px;
+            margin-top: 20px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        .active {
+            border: 2px solid #00A4FF;
+        }
+    }
     
 
 }
 .PageMain-RightMainAns {
     width: 35%;
+    background: rgb(242, 246, 250);
+    .PageMain-RightMainBg-container {
+  width: 98%;
+  height: 98%;
+  border: 1px solid #DCE3EB;
+  overflow: auto;
+  background: rgb(255, 255, 255);
+  li{
+    border-bottom: 1px solid #DCE3EB;
+    width: 100%;
+    background: white;
+    padding: 10px;
+  }
+}
 }
 }
 .PageMain-Bottom {

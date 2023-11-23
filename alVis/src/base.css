@@ -58,11 +58,16 @@ textarea {
     content: ".";
     height: 0
 }
-
+/* 单行省略 */
 .oneEllipsis {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+/* 换行 */
+.changeLine {
+        white-space: pre-wrap;
+     word-break: break-all;
 }
 #imgPreview {
     width: 100%;
@@ -70,7 +75,10 @@ textarea {
     object-fit: contain;
     object-position: center;
   }
-
+.imgLoad {
+    position: absolute!important;
+    z-index: 1;    
+}
   @-webkit-keyframes slide-in-right {
     0% {
       -webkit-transform: translateX(1000px);
