@@ -1,8 +1,15 @@
 import { AudioOutlined , TranslationOutlined, DotChartOutlined  } from '@ant-design/icons';
-const logoUrl = 'http://10.252.40.1:8888/static/img/logo.ico'
+// const logoUrl = 'http://10.252.40.1:8888/static/img/logo.ico'
+import logo from './logo.png'
+import ocr_0 from './img/ocr_0.jpg'
+import ocr_invoice_bg from './img/ocr_invoice_bg.jpg'
+import ocr_1 from './img/ocr_1.jpg'
+import audio_0 from './img/audio_0.jpg'
+import tts from './img/tts.png'
+import aichat from './img/aichat.png'
 const defaultProps = {
     title: '算法展示平台',
-    logo: logoUrl,
+    logo: logo,
     route: {
         path: '/',
         routes: [
@@ -19,34 +26,35 @@ const defaultProps = {
                         name: '通用场景文字识别',
                         introduce:'多场景、多语种、高精度的整图文字检测和识别服务，可识别各类印刷文档',
                         type:'img',
-                        iconUrl:'http://10.252.40.1:8888/static/img/ocr_0.jpg'
+                        apiType:'generalOCR',
+                        iconUrl:ocr_0 
                     },
                     {
                         path: '/text/ticket',
                         name: '票据文本识别',
                         children:[
-                            {name:'定额发票识别',path:'/text/ticket/dinge',introduce:'结构化识别各类定额发票的发票号码、发票代码、发票金额关键字段'},
-                            {name:'火车票识别',path:'/text/ticket/huoche',introduce:'结构化识别火车票的始发站、到达站、座位类型、日期、金额关键字段'},
-                            {name:'出租车发票识别',path:'/text/ticket/chuzu',introduce:'结构化识别出租车发票的发票代码、发票号码、日期、金额关键字段'},
-                            {name:'增值税发票识别',path:'/text/ticket/zengzhi',introduce:'结构化识别增值税发票的发票代码、发票号码、发票日期、发票金额、校验码等关键字段'}
+                            {name:'定额发票识别',path:'/text/ticket/dinge',introduce:'结构化识别各类定额发票的发票号码、发票代码、发票金额关键字段',apiType:'quotaInvoice',},
+                            {name:'火车票识别',path:'/text/ticket/huoche',introduce:'结构化识别火车票的始发站、到达站、座位类型、日期、金额关键字段',apiType:'trainInvoice',},
+                            {name:'出租车发票识别',path:'/text/ticket/chuzu',introduce:'结构化识别出租车发票的发票代码、发票号码、日期、金额关键字段',apiType:'taxiInvoice'},
+                            {name:'增值税发票识别',path:'/text/ticket/zengzhi',introduce:'结构化识别增值税发票的发票代码、发票号码、发票日期、发票金额、校验码等关键字段',apiType:'vatInvoice'}
                         ],
                         introduce:'结构化识别定额发票、火车票、出租车发票、增值税发票等',
                         type:'img',
-                        iconUrl:'http://10.252.40.1:8888/static/img/ocr_invoice_bg.jpg'
+                        iconUrl:ocr_invoice_bg
 
                     },
                     {
                         path: '/text/card',
                         name: '卡证文字识别',
                         children:[
-                            {name:'身份证识别',path:'/text/card/shenfen',introduce:'结构化识别身份证姓名、出生日期、民族、地址、身份证号、签发机关，有效期限关键字段'},
-                            {name:'结婚证识别',path:'/text/card/jiehun',introduce:'结构化识别结婚证各个关键字段'},
-                            {name:'户口本识别',path:'/text/card/hukou',introduce:'结构化户口本各个关键字段'},
-                            {name:'营业执照识别',path:'/text/card/yingye',introduce:'结构化营业执照各个关键字段'}
+                            {name:'身份证识别',path:'/text/card/shenfen',introduce:'结构化识别身份证姓名、出生日期、民族、地址、身份证号、签发机关，有效期限关键字段',apiType:'idcard'},
+                            {name:'结婚证识别',path:'/text/card/jiehun',introduce:'结构化识别结婚证各个关键字段',apiType:'marriage'},
+                            {name:'户口本识别',path:'/text/card/hukou',introduce:'结构化户口本各个关键字段',apiType:'household_register'},
+                            {name:'营业执照识别',path:'/text/card/yingye',introduce:'结构化营业执照各个关键字段',apiType:'businessLicencse'}
                         ],
                         introduce:'结构化识别身份证、结婚证、营业执照、户口本等常用卡片及证照',
                         type:'img',
-                        iconUrl:'http://10.252.40.1:8888/static/img/ocr_1.jpg'
+                        iconUrl:ocr_1
                     },
                 ],
             },
@@ -62,13 +70,13 @@ const defaultProps = {
                         path: '/voice/normal',
                         name: '语音识别',
                         children:[
-                            {name:'中文语音识别',path:'/voice/normal/zhongwen',introduce:'支持中文语音识别的模型'},
-                            {name:'中英语音识别',path:'/voice/normal/zhongyin',introduce:'支持中英语音识别的模型'},
-                            {name:'轻量化模型中文识别',path:'/voice/normal/qingliang',introduce:'轻量化模型，支持中文语音的快速识别'},
-                            {name:'中文语音流式识别',path:'/voice/normal/liushi',introduce:'支持中文语音流式识别的模型'}
+                            {name:'中文语音识别',path:'/voice/normal/zhongwen',introduce:'支持中文语音识别的模型',apiType:'pd'},
+                            {name:'中英语音识别',path:'/voice/normal/zhongyin',introduce:'支持中英语音识别的模型',apiType:'pf'},
+                            {name:'轻量化模型中文识别',path:'/voice/normal/qingliang',introduce:'轻量化模型，支持中文语音的快速识别',apiType:'k2'},
+                            {name:'中文语音流式识别',path:'/voice/normal/liushi',introduce:'支持中文语音流式识别的模型',apiType:'pds'}
                         ],
                         type:'voice',
-                        iconUrl:'http://10.252.40.1:8888/static/img/audio/audio_0.jpg'
+                        iconUrl:audio_0
 
 
                     },
@@ -77,7 +85,7 @@ const defaultProps = {
                         name: '语音合成',
                         introduce:'文本到语音的合成，合成速度快且真实',
                         type:'robot',
-                        iconUrl:'http://10.252.40.1:8888/static/img/audio/tts.png'
+                        iconUrl:tts
 
                     },
                 ],
@@ -95,7 +103,7 @@ const defaultProps = {
                         name: 'AIChat智能聊天助手',
                         introduce:'AIChat支持中英双语智能应答对话',
                         type:'robot',
-                        iconUrl:'http://10.252.40.1:8888/static/img/LLM/aichat.png'
+                        iconUrl:aichat
                     },
                 ],
             },

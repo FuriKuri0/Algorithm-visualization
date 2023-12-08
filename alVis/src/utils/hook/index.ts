@@ -2,7 +2,7 @@ import {  useAppDispatch,useAppSelector } from './declare';
 import { useEffect,useState } from 'react';
 import {setPath,setCurrent} from '../../store/reducers/path';
 import defaultProps from '../../pages/Home/defaultProps';
-import {  useCallback } from 'react';
+import {  useCallback,useMemo } from 'react';
 const list = defaultProps.route.routes
 export const usePath =  () => {
   const path = useAppSelector(state=>state.path)
@@ -20,8 +20,15 @@ export const usePath =  () => {
     const newCurrent = list.find(v=>v.path.split('/')[1]===path.split('/')[1])||{}
     dispath(setCurrent(newCurrent))
   },[pathName])
+  //获取apiType
+  const apiType = useMemo(()=>{
+    if(current.routes){
+      const target = current.routes.find(v=>pathName.includes(v.path))!
+      return target.children?target.children.find(v=>v.path===pathName).apiType:target.apiType
+    }
+},[pathName,current])
   return {
-    pathName,changePath,current
+    pathName,changePath,current,apiType
   }
 }
 

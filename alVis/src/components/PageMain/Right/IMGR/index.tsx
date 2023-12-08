@@ -5,12 +5,15 @@ import type { UploadProps } from 'antd';
 import './index.scss'
 import { useRefresh,usePath } from '../../../../utils/hook';
 import imgList from './data';
+import { textReconizeApi } from '../../../../api/api';
 export default function IMGR() {
     const [src,setSrc] = useState('')
     const [index,setIndex] = useState(0)
-    const [imgLoad,setImgLoad] = useState(true)
+    const [imgLoad,setImgLoad] = useState(false)
     const {refresh} = useRefresh()
-    const {pathName} = usePath()
+    const {pathName,apiType} = usePath()
+    const [newResult,setNewResult] = useState([])
+    const [resultLoad,setResultLoad] = useState(false)
     const state = useMemo(()=>{
         return imgList[pathName]
     },[pathName])
@@ -19,24 +22,31 @@ export default function IMGR() {
         setSrc(state.img[0])
         setIndex(0)
     },[pathName])
-    const updateImg = (src:string) => {
+    const updateImg = (src:string,noExchange:boolean) => {
+        const searchType = noExchange?'base64':'url'
+            setResultLoad(true)
+        textReconizeApi(apiType,src.split('base64,')[1],setResultLoad,searchType).then((data)=>{
+            const arr = Object.entries(data).map(([key, value]) => `${key}:  ${value}`);
+            setNewResult(arr)
+            setResultLoad(false)
+        })
         setSrc(src)
         setIndex(-1)
     }
     const onSearch = (e:string)=>{
-        updateImg(e)
+        updateImg(e,false)
     }
     const props: UploadProps = {
         maxCount:1,
         accept: '.png,.jpg,.jpeg,.pdf',
         onChange: (info) => {
-          const file =info.fileList[0].originFileObj!; // 获取到用户选择的文件
-          if (file) {
+          const file =info.file!; // 获取到用户选择的文件
+          if (file.status !== 'uploading') {
             const reader = new FileReader();
             reader.onload = function(e) {
-                updateImg(e.target?.result as string)
+                updateImg(e.target?.result as string,true)
             };
-            reader.readAsDataURL(file);  // 以 Data URL 形式读取文件
+            reader.readAsDataURL(file.originFileObj);  // 以 Data URL 形式读取文件
           }
         },
       };
@@ -60,12 +70,14 @@ export default function IMGR() {
                     </div>
             </div>
             <div className='PageMain-RightMainAns'>
+            {resultLoad?<Spin  size="large" className='imgLoad'/>:<></>}
             <ul className="PageMain-RightMainBg-container">
                 <li key='识别结果识别结果的keyyyy'>识别结果</li>
-            {state?.result[index]?.map((v:string,i:number)=>{
+                {index===-1?newResult.map((v:string,i:number)=>{
+                    return  <li key={v+i} className='changeLine'>{v}</li>
+                }):state?.result[index]?.map((v:string,i:number)=>{
                     return  <li key={v+i} className='changeLine'>{v}</li>
                 })}
-               
             </ul>
             </div>
            

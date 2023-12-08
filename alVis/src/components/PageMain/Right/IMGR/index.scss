@@ -1,7 +1,12 @@
+.ant-upload-list {
+    display: none;
+}
+
 .PageMain-RightMain{
     display: flex;
     justify-content: center;
     height: 600px;
+   
 
 .PageMain-RightMainAsk,.PageMain-RightMainAns {
     display: flex;
@@ -58,6 +63,7 @@
  .PageMain-RightMainAsk {
     margin-right: 20px;
     width: 65%;
+    
     .PageMain-RightMainBg {
         display: flex;
         justify-content: center;
@@ -85,12 +91,15 @@
 .PageMain-RightMainAns {
     width: 35%;
     background: rgb(242, 246, 250);
+    justify-content: center;
+    align-items: center;
     .PageMain-RightMainBg-container {
   width: 98%;
   height: 98%;
   border: 1px solid #DCE3EB;
   overflow: auto;
   background: rgb(255, 255, 255);
+
   li{
     border-bottom: 1px solid #DCE3EB;
     width: 100%;

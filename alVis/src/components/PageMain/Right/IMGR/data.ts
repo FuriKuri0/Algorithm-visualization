@@ -1,3 +1,5 @@
+import jiehun from './jiehun.jpg'
+import hukou from './hukou.jpg'
 const  imgList:{[key:string]:{img:Array<string>,result:Array<Array<string>>},} = {
     '/text/normal':{img:['https://ocr-demo-1254418846.cos.ap-guangzhou.myqcloud.com/general/GeneralBasicOCR/GeneralBasicOCR1.jpg','https://ocr-demo-1254418846.cos.ap-guangzhou.myqcloud.com/general/GeneralBasicOCR/GeneralBasicOCR2.jpg'],result:[['Sun','1月8日','八色鸫','Pitta nympha','八色鸫雌鸟和雄鸟一样漂亮。它经常在亚热带的森林地面上走动,捕','食落叶下的昆虫和晰蜴等小动物,唱歌时会飞到树上。因为森林砍伐',
     '和非法的玩赏鸟贸易,现在它的数量已明显减少。'],['MINI','by','FLOWERPLUS']]},
@@ -8,13 +10,13 @@ const  imgList:{[key:string]:{img:Array<string>,result:Array<Array<string>>},} =
     '/text/ticket/zengzhi':{img:['https://ocr-demo-1254418846.cos.ap-guangzhou.myqcloud.com/invoice/MixedInvoiceDetect/MixedInvoiceDetect1.jpg'],result:[['是否有代开标记（0：没有，1：有）：0','购买方名称：深圳市腾讯计算机系统有限公司','购买方地址电话：深圳市南山区高新区高新南一路飞亚达大厦5-10楼0755-86013388','购买方银行账号：招商银行深圳分行振兴支行817282299619961','购买方纳税人识别号：440300708461136','密码区：*7-0<84019---5+68315-99->/51,>814<1/7922/<-23/908+>7474+3,78312-072<3<729-+4<6*315-094,->/5>18493/1-60*6-43/90<--78','市：深圳市','发票代码：4403152130','机打发票代码：4403152130','公司印章内容：深圳市游戏科技有限公司,000,发票专用章,NNDN','是否有公司印章（0：没有，1：有）：1','开票日期：2016年04月11日','发票联名：发票联','发票联次：三','开票人/填开单位：张三','消费类型：服务','发票号码：14998456','机打发票号码：14998456','是否有成品油标记：0','税前金额：778.44','省：广东省','是否存在二维码（1：有，0：无）：0','收款人：李明','复核人：晓艾','销售方名称：深圳市游戏科技有限公司','销售方地址电话：深圳市南山区高新南一道3号赋安科技大楼A座301室0755-86315454','销售方银行账号：浦发行深圳科技园支行79210154740015474','销售方纳税人识别号：440300094040109','发票类型：增值税专用发票','合计税额：46.71','发票名称：深圳增值税专用发票','票价/价税合计（小写）/总金额：825.15','价税合计（大写）：捌佰贰拾伍圆壹角伍分','是否有通行费标记：0']]},
     '/text/card/shenfen':{img:['https://ocr-demo-1254418846.cos.ap-guangzhou.myqcloud.com/card/IDCardOCR/IDCardOCR1.jpg'],
     result:[['姓名：刘洋','性别：女','民族：汉','出生：1995/5/13','住址：广东省深圳市南山区腾讯大厦','公民身份号码：440305199505132561',]]},
-    '/text/card/jiehun':{img:['https://ocr-demo-1254418846.cos.ap-guangzhou.myqcloud.com/card/IDCardOCR/IDCardOCR1.jpg'],
-    result:[['姓名：刘洋','性别：女','民族：汉','出生：1995/5/13','住址：广东省深圳市南山区腾讯大厦','公民身份号码：440305199505132561',]]},
-    '/text/card/hukou':{img:['https://ocr-demo-1254418846.cos.ap-guangzhou.myqcloud.com/card/IDCardOCR/IDCardOCR1.jpg'],
-    result:[['姓名：刘洋','性别：女','民族：汉','出生：1995/5/13','住址：广东省深圳市南山区腾讯大厦','公民身份号码：440305199505132561',]]},
+    '/text/card/jiehun':{img:[jiehun],
+    result:[['持证人:  温家辉','登记日期:  2050年03月13日','结婚证字号:  J551754-2064-006838','姓名1:  温家辉','性别1:  男','国籍1:  中国','出生日期1:  2057年11月11日','身份证件号1:  806965192608283489'
+,'姓名2:  伊墨尘','性别2:  男','国籍2:  中国','出生日期2:  2036年06月12日','身份证件号2:  702434204910190233']]},
+    '/text/card/hukou':{img:[hukou],
+    result:[['Name:  彭超悦','RelationShip:  孙子女','Sex:  男','BirthPlace:  广西壮族自治区','Nation:  苗族','Hometown:  云南省西双版纳傣族自治州','BirthDate:  1933年02月30日','Religion:  无',
+'IDNum:  802227200405165931','EdcuBackground:  中专(中技)','Wedding:  再婚','SetYear:  1942','SetMonth:  08','SetDay:  04','ServicesPlace:  香港特别行政区芳市平山高路座','WhenMovetoCity:  2050年04月03日陕西省西安市海南省大冶县朝阳李路','WhenMovetoAddr:  1980年03月23日甘肃省兰州市内蒙古自治区丽华县吉','MilitaryService:  预备役']]},
     '/text/card/yingye':{img:['https://ocr-demo-1254418846.cos.ap-guangzhou.myqcloud.com/card/BizLicenseOCR/BizLicenseOCR1.jpg'],
     result:[['注册号：110000012345678','名称：杭州市魔乐计算机有限公司','类型：有限责任公司','住所：深圳市南山区高新区高新南一路飞亚达大厦','法定代表人：毛华','注册资本：人民币柒仟万','营业期限：1998年11月至长期','成立日期：1998年11月','经营范围：计算机软、硬件的设计、技术开发、销售(不含专营、专控、专卖商品及限制项目);数据库及计算机网络服务;国内商业、物资供销业(不含专营、专控、专卖商品)',]]},
-
-
 }
 export default imgList
