@@ -1,5 +1,6 @@
 import {voiceReconizeApi} from '../api/api'
 import Recorder from 'js-audio-recorder'
+import {message} from 'antd'
 let recorder:any 
 export function fileToBase64 (file) {
     return new Promise((resolve, reject) => {
@@ -24,20 +25,23 @@ export  const startRecord = () => { // 语音输入开始
         },
         (error:any) => {
           // 出错了
+          message.warning('打开麦克风失败')
           console.log(error)
         }
       )
 }
-export const stopRecord = (beforeFin:Function,aftereFin:Function,apiType:string) => { // 语音输入结束
+export const stopRecord = (beforeFin:Function,aftereFin:Function,apiType:string,setAudioSrc:Function) => { // 语音输入结束
     beforeFin()
     recorder.stop()
     const wavBlob = recorder.getWAVBlob()
     const file = new File([wavBlob], 'test.wav', { type: 'audio/wav' });
+    const url = URL.createObjectURL(new Blob([file], { type: 'audio/mp3' }))
+    setAudioSrc(url)
     fileToBase64(file)
     .then((base64Data:any) => {
       voiceReconizeApi(apiType,base64Data).then(data=>{
             aftereFin(data['语音内容'])
-      })
+      },err=>message.warning('识别异常'))
     })
     .catch(error => {
       console.error(error);

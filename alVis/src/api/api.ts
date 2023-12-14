@@ -10,8 +10,8 @@ export const textReconizeApi = (type:string,data:string,setResultLoad:Function,s
 
 export const voiceReconizeApi = (type:string,data:string,symbol='yes')=>{
     const postData = {type,data,symbol}
-    return new Promise((resolve)=>{
-        serviceAxios.post('asr',postData).then((ans)=>resolve(ans))
+    return new Promise((resolve,reject)=>{
+        serviceAxios.post('asr',postData).then((ans)=>resolve(ans),(err)=>reject(err))
     })
 }
 
